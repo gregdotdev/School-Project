@@ -1,0 +1,32 @@
+{
+    "0": {
+        "scared": 7,
+        "heart": 4,
+        "laugh": 2
+    },
+    "1": {
+        "scared": 10,
+        "heart": 7,
+        "laugh": 4
+    },
+    "2": {
+        "scared": 2,
+        "heart": 1,
+        "laugh": 0
+    },
+    "3": {
+        "scared": 8,
+        "heart": 6,
+        "laugh": 3
+    },
+    "4": {
+        "scared": 6,
+        "heart": 5,
+        "laugh": 1
+    },
+    "5": {
+        "scared": 1,
+        "heart": 2,
+        "laugh": 2
+    }
+}

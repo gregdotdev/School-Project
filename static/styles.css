@@ -1,0 +1,105 @@
+/* Adicione este código ao seu arquivo styles.css */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #333;
+    color: white;
+}
+
+.title {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.animal-wrapper {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.animal-box {
+    width: calc(50% - 20px);
+    max-width: 300px;
+    margin: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    transition: transform 0.3s ease-in-out;
+    text-decoration: none;
+    color: #333;
+    display: block;
+}
+
+.animal-box:hover {
+    transform: scale(1.05);
+}
+
+.animal-box h2 {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.animal-content {
+    padding: 20px;
+    position: relative;
+}
+
+.animal-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto 20px;
+    opacity: 0.7;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.animal-box:hover .animal-image {
+    opacity: 1;
+}
+
+.navbar {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.nav-button {
+    background-color: #ff5733;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    text-decoration: none;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.nav-button:hover {
+    background-color: #ff814e;
+}
+
+.collabs {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.collabs a {
+    text-decoration: none;
+    color: red;
+}

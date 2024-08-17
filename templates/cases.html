@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .centered-title {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        
+        .cases-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        
+        .case-box {
+            width: calc(33.33% - 20px);
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
+            padding: 20px;
+        }
+        
+        .case-box h2 {
+            margin-top: 0;
+            color: #333;
+        }
+        
+        .back-link {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            text-decoration: none;
+            color: #007bff;
+        }
+    </style>
+    <title>Cases of Animal Encounters</title>
+</head>
+<body>
+    <div class="container">
+        <h1 class="centered-title">Cases of Animal Encounters</h1>
+        <div class="cases-list">
+            {% for case in animal_cases %}
+            <div class="case-box">
+                <h2>{{ case.title }}</h2>
+                <p>{{ case.description }}</p>
+                <!-- Outras informações do caso -->
+            </div>
+            {% endfor %}
+        </div>
+        <a href="/" class="back-link">Back to Home</a>
+        <center><p>All cases were taken from WEB articles, no stories were invented.</p></center>
+    </div>
+</body>
+</html>

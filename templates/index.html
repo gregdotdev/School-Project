@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <title>Dangerous Animals of Australia</title>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="title">Dangerous Animals of Australia</div>
+        </div>
+        <div class="animal-wrapper">
+            {% for animal in dangerous_animals %}
+            <a href="{{ url_for('animal', animal_id=loop.index0) }}" class="animal-box">
+                <h2>{{ animal['name'] }}</h2>
+                <div class="animal-content">
+                    <img class="animal-image" src="{{ url_for('static', filename=animal['animal_pic']) }}" alt="{{ animal['name'] }}">
+                    <p>Infos about {{ animal['name'] }}</p>
+                </div>
+            </a>
+            {% endfor %}
+        </div>
+        <div class="navbar">
+            <a href="/cases" class="nav-button">Cases</a>
+            <a href="/fonts" class="nav-button">Fonts</a>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        /* Estilos gerais */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .animal-box {
+            width: 100%;
+            max-width: 500px;
+            margin: 20px auto;
+            border-radius: 10px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
+            text-align: center;
+        }
+
+        .animal-box h2 {
+            text-align: center;
+            margin-top: 20px;
+            color: #333;
+        }
+
+        .animal-image {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+
+        .animal-content {
+            padding: 20px;
+        }
+
+        .reactions {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .reaction-button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+
+        .reaction-count {
+            font-size: 18px;
+        }
+
+        .back-link {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            text-decoration: none;
+            color: #007bff;
+        }
+    </style>
+    <title>{{ animal.name }}</title>
+</head>
+<body>
+    <div class="container">
+        <div class="animal-box">
+            <h2>{{ animal.name }}</h2>
+            <img class="animal-image" src="{{ url_for('static', filename=animal['animal_pic']) }}" alt="{{ animal.name }}">
+            <div class="animal-content">
+                <h3>How to Defend Yourself</h3>
+                <p>{{ animal.defense }}</p>
+                <h3>Food Chain</h3>
+                <p>{{ animal.food_chain }}</p>
+
+                <!-- Adicionar som do animal -->
+            <h3>Animal Sound</h3>
+            <div class="animal-sound">
+            {% if animal.sound_link %}
+            <audio controls>
+            <source src="{{ animal.sound_link }}" type="audio/mpeg">
+            Your browser does not support the audio element.
+            </audio>
+            {% else %}
+            No sound available for this animal.
+            {% endif %}
+            </div>
+
+                
+                <!-- Adicionar reações -->
+                <h3>Reactions</h3>
+                <div class="reactions">
+                    <form action="{{ url_for('animal', animal_id=animal_id) }}" method="POST">
+                        <input type="hidden" name="reaction_type" value="scared">
+                        <button type="submit" class="reaction-button">😱 Scared</button>
+                        <span class="reaction-count">{{ reactions.get('scared', 0) }}</span>
+                    </form>
+                    <form action="{{ url_for('animal', animal_id=animal_id) }}" method="POST">
+                        <input type="hidden" name="reaction_type" value="heart">
+                        <button type="submit" class="reaction-button">❤️ Heart</button>
+                        <span class="reaction-count">{{ reactions.get('heart', 0) }}</span>
+                    </form>
+                    <form action="{{ url_for('animal', animal_id=animal_id) }}" method="POST">
+                        <input type="hidden" name="reaction_type" value="laugh">
+                        <button type="submit" class="reaction-button">😂 Laugh</button>
+                        <span class="reaction-count">{{ reactions.get('laugh', 0) }}</span>
+                    </form>
+                </div>
+                
+                <a href="/" class="back-link">Back to Home</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
